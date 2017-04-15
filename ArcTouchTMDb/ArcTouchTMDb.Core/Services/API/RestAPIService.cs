@@ -18,11 +18,11 @@ namespace ArcTouchTMDb.Core
 			client = new HttpClient();
 		}
 
-		public async Task<T> Request<T>(string url, IBaseRequest request) where T : IBaseResponse
+		public async Task<T> Request<T>(IBaseRequest request) where T : IBaseResponse
 		{
 			try
 			{
-				var response = await client.GetAsync(url);
+				var response = await client.GetAsync(request.CreateRequestUrl());
 
 				if (response.IsSuccessStatusCode)
 				{

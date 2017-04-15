@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <color name="colorPrimary">#3498db</color>
+    <color name="colorPrimaryDark">#2980b9</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="cinza_texto">#595959</color>
+    <color name="green_alert">#2ecc71</color>
+    <color name="dark_tranparency">#333498db</color>
+    <color name="second_background">#e7e7e7</color>
+    <color name="green_ok">#0aaf0d</color>
+    <color name="cinza_texto_claro">#838383</color>
+    <color name="cinza_claro">#bbbbbb</color>
+    <color name="negative">#bb123f</color>
+</resources>

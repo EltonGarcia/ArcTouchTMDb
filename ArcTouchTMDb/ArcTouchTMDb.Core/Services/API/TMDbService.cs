@@ -6,7 +6,7 @@ using ArcTouchTMDb.Core.Services.API.Response;
 
 namespace ArcTouchTMDb.Core
 {
-	public class TMDbService : ITMDbService
+	public class TMDbService : RestAPIService, ITMDbService
 	{
 		public TMDbService()
 		{
@@ -14,17 +14,17 @@ namespace ArcTouchTMDb.Core
 
 		public Task<DiscoverResponse> Discover(DiscoverRequest request)
 		{
-			throw new NotImplementedException();
+			return Request<DiscoverResponse>(request);
 		}
 
 		public Task<MovieDetailsResponse> GetMovieDetails(MovieDetailsRequest request)
 		{
-			throw new NotImplementedException();
+			return Request<MovieDetailsResponse>(request);
 		}
 
 		public Task<SearchMoviesResponse> Search(SearchMoviesRequest request)
 		{
-			throw new NotImplementedException();
+			return Request<SearchMoviesResponse>(request);
 		}
 	}
 }
