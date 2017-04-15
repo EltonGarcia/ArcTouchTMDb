@@ -11,8 +11,8 @@ namespace ArcTouchTMDb.Core
 		private ISettingsService _settingsService;
 
 		private Settings _settings;
-		private ObservableCollection<Movie> _movies;
-		private int _page = 0;
+		private ObservableCollection<Movie> _movies = new ObservableCollection<Movie>();
+		private int _page = 1;
 		private int? _totalPages = null;
 
 		public ObservableCollection<Movie> Movies
@@ -44,12 +44,9 @@ namespace ArcTouchTMDb.Core
 			await RequestAndRefresh(new DiscoverRequest(_settings));
 		}
 
-		protected override Task InitializeAsync()
+		protected override async Task InitializeAsync()
 		{
-			return Task.Run(async () =>
-			{
-				await RequestAndRefresh(new DiscoverRequest(_settings));
-			});
+			await RequestAndRefresh(new DiscoverRequest(_settings));
 		}
 
 		private async Task NextPage()
@@ -65,11 +62,14 @@ namespace ArcTouchTMDb.Core
 		private async Task RequestAndRefresh(DiscoverRequest request)
 		{
 			var response = await _tmdbService.Discover(request);
-			_totalPages = response.total_pages;
+			if (response != null)
+			{
+				_totalPages = response.total_pages;
 
-			foreach (var movie in response.results)
-				_movies.Add(movie);
-			Movies = _movies;
+				foreach (var movie in response.results)
+					_movies.Add(movie);
+				Movies = _movies;
+			}
 		}
 	}
 }

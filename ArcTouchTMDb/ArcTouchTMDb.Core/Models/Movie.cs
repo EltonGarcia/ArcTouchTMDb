@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ArcTouchTMDb.Core
 {
@@ -7,7 +8,7 @@ namespace ArcTouchTMDb.Core
 		public string poster_path { get; set; }
 		public bool adult { get; set; }
 		public string overview { get; set; }
-		public string release_date { get; set; }
+		public DateTime release_date { get; set; }
 		public List<int> genre_ids { get; set; }
 		public int id { get; set; }
 		public string original_title { get; set; }
@@ -18,5 +19,7 @@ namespace ArcTouchTMDb.Core
 		public int vote_count { get; set; }
 		public bool video { get; set; }
 		public double vote_average { get; set; }
+
+		public int year { get{ return release_date.Year; } }
 	}
 }

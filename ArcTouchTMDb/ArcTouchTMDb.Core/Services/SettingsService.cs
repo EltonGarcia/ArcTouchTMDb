@@ -7,7 +7,7 @@ namespace ArcTouchTMDb.Core
 		{
 			return new Settings()
 			{
-				BaseUrl = "https://developers.themoviedb.org/3/",
+				BaseUrl = "https://api.themoviedb.org/3",
 				ApiKey = "1f54bd990f1cdfb230adb312546d765d",
 				Language = new Language(),
 				Region = new Region()

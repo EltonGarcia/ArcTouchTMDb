@@ -5,7 +5,7 @@ namespace ArcTouchTMDb.Core.Services.API.Request
 {
 	public class DiscoverRequest : BaseRequest
 	{
-		public int page { get; set; }
+		public int page { get; set; } = 1;
 		public string sort_by { get; set; }
 
 		protected override string action => "/discover/movie";
