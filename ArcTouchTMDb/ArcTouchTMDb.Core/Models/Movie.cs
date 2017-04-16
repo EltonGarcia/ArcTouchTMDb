@@ -21,5 +21,6 @@ namespace ArcTouchTMDb.Core
 		public double vote_average { get; set; }
 
 		public int year { get{ return release_date.Year; } }
+		public string poster { get { return "https://image.tmdb.org/t/p/w300" + poster_path; } }
 	}
 }

@@ -6,12 +6,17 @@
     android:layout_height="match_parent"
     android:id="@+id/movie_list_item">
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <ffimageloading.cross.MvxImageLoadingView
+            android:id="@+id/imageLoading"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerCrop"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            local:MvxBind="DataLocationUri poster" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -46,14 +51,6 @@
                 android:layout_alignParentLeft="true"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp" />
-        <!--<TextView 
-				android:id="@+id/item_genres"
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content" 
-				local:MvxBind="Text genresList"
-				android:layout_below="@+id/item_overview"
-				android:layout_alignParentLeft="true"
-				android:paddingTop="8dp"/>-->
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
