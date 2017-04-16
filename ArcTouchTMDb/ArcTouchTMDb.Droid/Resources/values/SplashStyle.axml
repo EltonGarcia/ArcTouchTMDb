@@ -2,6 +2,6 @@
 <resources>
   <style name="Theme.Splash" parent="@style/Theme.AppCompat">
     <item name="android:windowNoTitle">true</item>
-    <item name="android:background">@drawable/splash1</item>
+    <item name="android:background">@drawable/start</item>
   </style>
 </resources>
