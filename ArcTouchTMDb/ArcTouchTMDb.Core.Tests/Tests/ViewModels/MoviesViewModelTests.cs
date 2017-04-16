@@ -5,6 +5,7 @@ using ArcTouchTMDb.Core.Services.API.Response;
 using Moq;
 using MvvmCross.Plugins.Messenger;
 using NUnit.Framework;
+using Sequence.Plugins.InfiniteScroll.Shared;
 
 namespace ArcTouchTMDb.Core.Tests
 {
@@ -12,7 +13,7 @@ namespace ArcTouchTMDb.Core.Tests
 	public class MoviesViewModelTests
 	{
 		[Test()]
-		public async Task Test_LoadMoviesCorrectly()
+		public void Test_LoadMoviesCorrectly()
 		{
 			//arrange
 			//CityDataService mockCityDataService = ServiceMocks.GetMockCityDataService(3);
@@ -34,9 +35,8 @@ namespace ArcTouchTMDb.Core.Tests
 			mockTMDbService.Setup(o => o.Discover(null)).ReturnsAsync(mockResponse.Object);
 
 			//act
-			var moviesViewModel = new MoviesViewModel(mockMessenger.Object, mockTMDbService.Object, mockSettingsService.Object);
-			await moviesViewModel.LoadMovies();
-
+			var moviesViewModel = new MoviesViewModel(mockMessenger.Object, mockTMDbService.Object, 
+			                                          mockSettingsService.Object, new IncrementalCollectionFactory());
 			//assert
 			Assert.AreEqual(moviesViewModel.Movies.Count, 3);
 		}

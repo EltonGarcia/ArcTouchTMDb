@@ -117,6 +117,21 @@
     <Reference Include="FFImageLoading.Transformations">
       <HintPath>..\packages\Xamarin.FFImageLoading.Transformations.2.2.9\lib\MonoAndroid10\FFImageLoading.Transformations.dll</HintPath>
     </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\MonoAndroid\Nito.AsyncEx.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\MonoAndroid\Nito.AsyncEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment">
+      <HintPath>..\packages\Nito.AsyncEx.3.0.1\lib\MonoAndroid\Nito.AsyncEx.Enlightenment.dll</HintPath>
+    </Reference>
+    <Reference Include="Sequence.Plugins.InfiniteScroll">
+      <HintPath>..\packages\Sequence.Plugins.InfiniteScroll.1.0.1\lib\MonoAndroid10\Sequence.Plugins.InfiniteScroll.dll</HintPath>
+    </Reference>
+    <Reference Include="Sequence.Plugins.InfiniteScroll.Droid">
+      <HintPath>..\packages\Sequence.Plugins.InfiniteScroll.1.0.1\lib\MonoAndroid10\Sequence.Plugins.InfiniteScroll.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -126,6 +141,8 @@
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Adapters\ViewAdapters\IncrementalAdapter.cs" />
+    <Compile Include="Adapters\ViewAdapters\IncrementalListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -151,6 +168,8 @@
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Activities\" />
+    <Folder Include="Adapters\" />
+    <Folder Include="Adapters\ViewAdapters\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArcTouchTMDb.Core\ArcTouchTMDb.Core.csproj">

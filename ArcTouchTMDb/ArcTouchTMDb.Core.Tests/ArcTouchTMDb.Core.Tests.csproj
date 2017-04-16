@@ -56,6 +56,9 @@
     <Reference Include="MvvmCross.Plugins.Messenger">
       <HintPath>..\packages\MvvmCross.Plugin.Messenger.4.4.0\lib\net45\MvvmCross.Plugins.Messenger.dll</HintPath>
     </Reference>
+    <Reference Include="Sequence.Plugins.InfiniteScroll">
+      <HintPath>..\packages\Sequence.Plugins.InfiniteScroll.1.0.1\lib\dotnet\Sequence.Plugins.InfiniteScroll.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />

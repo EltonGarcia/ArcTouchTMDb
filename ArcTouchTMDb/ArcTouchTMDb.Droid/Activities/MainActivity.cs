@@ -11,16 +11,11 @@ namespace ArcTouchTMDb.Droid
 	          WindowSoftInputMode = SoftInput.AdjustPan | SoftInput.StateHidden)]
 	public class MainActivity : BaseActivity<MoviesViewModel>
 	{
-		private ListView _listMovies;
-
 		protected override int ActivityLayoutId => Resource.Layout.Main;
 
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-
-			_listMovies = FindViewById<ListView>(Resource.Id.ListMovies);
-
 		}
 	}
 }

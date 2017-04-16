@@ -4,8 +4,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Mvx.MvxListView
+    <ArcTouchTMDb.Droid.IncrementalListView
         android:id="@+id/ListMovies"
+        android:smoothScrollbar="true"
+        android:scrollingCache="false"
+        android:animationCache="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="2dp"
