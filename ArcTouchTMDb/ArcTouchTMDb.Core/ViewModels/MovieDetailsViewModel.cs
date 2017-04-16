@@ -41,6 +41,22 @@ namespace ArcTouchTMDb.Core
 			}
 		}
 
+		public bool ShowProgress
+		{
+			get
+			{
+				return !Loaded;
+			}
+		}
+
+		public bool Loaded
+		{
+			get
+			{
+				return Movie != null;
+			}
+		}
+
 		public MovieDetailsViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService) : base(messenger, settingsService)
 		{
 			_tmdbService = tmdbService;

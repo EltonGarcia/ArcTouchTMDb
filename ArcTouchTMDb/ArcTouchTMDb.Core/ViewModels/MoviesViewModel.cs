@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Threading;
 using MvvmCross.Plugins.Messenger;
 using ArcTouchTMDb.Core.Services.API.Request;
 using Sequence.Plugins.InfiniteScroll;
 using MvvmCross.Core.ViewModels;
+using System.Linq;
 
 namespace ArcTouchTMDb.Core
 {
@@ -19,6 +21,28 @@ namespace ArcTouchTMDb.Core
 		private int _page = 0;
 		private int _pageSize = 20;
 		private int? _totalPages = null;
+		private bool _listLoaded;
+		private object _lockObject = new object();
+
+		public bool ShowProgress
+		{
+			get
+			{
+				return _movies == null || !_movies.Any();
+			}
+		}
+
+		public bool ListLoaded
+		{
+			get
+			{
+				return _listLoaded;
+			}
+			set
+			{
+				_listLoaded = value;
+			}
+		}
 
 		/// <summary>
 		/// The movies list.
@@ -35,6 +59,11 @@ namespace ArcTouchTMDb.Core
 					{
 						return await GetMovies();
 					}, _pageSize);
+				}
+
+				if (!ListLoaded)
+				{
+					ListLoaded = true;
 				}
 				return _movies;
 			}
@@ -83,11 +112,35 @@ namespace ArcTouchTMDb.Core
 		/// <param name="tmdbService">Tmdb service.</param>
 		/// <param name="settingsService">Settings service.</param>
 		/// <param name="incrementalCollectionFactory">Incremental collection factory.</param>
-		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, IIncrementalCollectionFactory incrementalCollectionFactory) 
+		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, IIncrementalCollectionFactory incrementalCollectionFactory)
 			: base(messenger, settingsService)
 		{
 			_tmdbService = tmdbService;
 			_incrementalCollectionFactory = incrementalCollectionFactory;
+		}
+
+		public async override void Start()
+		{
+			base.Start();
+			ListLoaded = false;
+			await CheckListLoad();
+		}
+
+		private async Task CheckListLoad()
+		{
+			await Task.Delay(1000);
+			if (!ShowProgress)
+			{
+				InvokeOnMainThread(() =>
+				{
+					RaisePropertyChanged(() => ListLoaded);
+					RaisePropertyChanged(() => ShowProgress);
+				});
+			}
+			else
+			{
+				await CheckListLoad();
+			}
 		}
 	}
 }

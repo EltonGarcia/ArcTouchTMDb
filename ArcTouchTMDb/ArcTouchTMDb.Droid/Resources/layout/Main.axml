@@ -4,6 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        local:MvxBind="Visible ShowProgress" />
     <ArcTouchTMDb.Droid.IncrementalListView
         android:id="@+id/ListMovies"
         android:smoothScrollbar="true"
@@ -12,6 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="2dp"
-        local:MvxBind="ItemsSource Movies; ItemClick MovieDetailsCommand"
+        local:MvxBind="ItemsSource Movies; ItemClick MovieDetailsCommand;Visible ListLoaded"
         local:MvxItemTemplate="@layout/movie_list_item" />
 </LinearLayout>
