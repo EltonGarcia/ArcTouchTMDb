@@ -7,11 +7,13 @@ namespace ArcTouchTMDb.Core
 {
 	public class BaseViewModel : MvxViewModel, IDisposable
 	{
+		protected Settings Settings;
 		protected IMvxMessenger Messenger;
 
-		public BaseViewModel(IMvxMessenger messenger)
+		public BaseViewModel(IMvxMessenger messenger, ISettingsService settingsService)
 		{
 			Messenger = messenger;
+			Settings = settingsService.GetSettings();
 		}
 
 		protected async Task ReloadDataAsync()

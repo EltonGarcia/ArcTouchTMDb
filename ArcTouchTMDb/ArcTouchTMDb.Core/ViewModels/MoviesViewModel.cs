@@ -3,54 +3,90 @@ using System.Threading.Tasks;
 using MvvmCross.Plugins.Messenger;
 using ArcTouchTMDb.Core.Services.API.Request;
 using Sequence.Plugins.InfiniteScroll;
+using MvvmCross.Core.ViewModels;
 
 namespace ArcTouchTMDb.Core
 {
+	/// <summary>
+	/// Movies view model.
+	/// </summary>
 	public class MoviesViewModel : BaseViewModel
 	{
 		private readonly ITMDbService _tmdbService;
-		private readonly ISettingsService _settingsService;
 		private readonly IIncrementalCollectionFactory _incrementalCollectionFactory;
 
-		private Settings _settings;
 		private ObservableCollection<Movie> _movies;
 		private int _page = 0;
+		private int _pageSize = 20;
 		private int? _totalPages = null;
 
+		/// <summary>
+		/// The movies list.
+		/// </summary>
+		/// <value>The movies.</value>
 		public ObservableCollection<Movie> Movies
 		{
-			get 
+			get
 			{
-				if (_movies == null)
+				var hasNextPage = !_totalPages.HasValue || (_totalPages.HasValue && _totalPages.Value > _page);
+				if (_movies == null && hasNextPage)
 				{
-					_movies = _incrementalCollectionFactory.GetCollection(async (count, pageSize) => 
+					_movies = _incrementalCollectionFactory.GetCollection(async (count, pageSize) =>
 					{
-						ObservableCollection<Movie> newMovies = new ObservableCollection<Movie>();
-
-						var request = new DiscoverRequest(_settings);
-						request.page = ++_page;
-
-						var response = await _tmdbService.Discover(request);
-						if (response != null)
-						{
-							_totalPages = response.total_pages;
-
-							foreach (var movie in response.results)
-								newMovies.Add(movie);
-						}
-
-						return newMovies;
-					}, 20);
+						return await GetMovies();
+					}, _pageSize);
 				}
-				return _movies; 
+				return _movies;
 			}
 		}
 
-		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, IIncrementalCollectionFactory incrementalCollectionFactory) : base(messenger)
+		/// <summary>
+		/// Gets the next movies list page.
+		/// </summary>
+		/// <returns>The movies.</returns>
+		private async Task<ObservableCollection<Movie>> GetMovies()
+		{
+			ObservableCollection<Movie> newMovies = new ObservableCollection<Movie>();
+
+			var request = new DiscoverRequest(Settings);
+			request.page = ++_page;
+
+			var response = await _tmdbService.Discover(request);
+			if (response != null)
+			{
+				_totalPages = response.total_pages;
+
+				foreach (var movie in response.results)
+					newMovies.Add(movie);
+			}
+
+			return newMovies;
+		}
+
+		private MvxCommand<Movie> _movieDetailsCommand;
+		public MvxCommand<Movie> MovieDetailsCommand
+		{
+			get
+			{
+				return _movieDetailsCommand = _movieDetailsCommand ??
+					new MvxCommand<Movie>(movie =>
+					{
+						ShowViewModel<MovieDetailsViewModel>(new { movieId = movie.id });
+					});
+			}
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:ArcTouchTMDb.Core.MoviesViewModel"/> class.
+		/// </summary>
+		/// <param name="messenger">Messenger.</param>
+		/// <param name="tmdbService">Tmdb service.</param>
+		/// <param name="settingsService">Settings service.</param>
+		/// <param name="incrementalCollectionFactory">Incremental collection factory.</param>
+		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, IIncrementalCollectionFactory incrementalCollectionFactory) 
+			: base(messenger, settingsService)
 		{
 			_tmdbService = tmdbService;
-			_settingsService = settingsService;
-			_settings = _settingsService.GetSettings();
 			_incrementalCollectionFactory = incrementalCollectionFactory;
 		}
 	}

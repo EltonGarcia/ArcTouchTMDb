@@ -143,6 +143,7 @@
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Adapters\ViewAdapters\IncrementalAdapter.cs" />
     <Compile Include="Adapters\ViewAdapters\IncrementalListView.cs" />
+    <Compile Include="Activities\MovieDetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -164,12 +165,58 @@
     <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\values\Colors.xml" />
     <AndroidResource Include="Resources\layout\Movie_List_Item.axml" />
+    <AndroidResource Include="Resources\layout\MovieDetails.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_http_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_local_movies_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_movie_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_movie_creation_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_star_rate_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_http_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_local_movies_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_movie_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_movie_creation_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_star_rate_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_http_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_local_movies_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_movie_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_movie_creation_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_star_rate_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_http_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_local_movies_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_movie_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_movie_creation_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_star_rate_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_business_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_event_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_http_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_local_movies_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_movie_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_movie_creation_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_star_rate_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_date_range_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_date_range_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_date_range_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_date_range_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_date_range_black_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Activities\" />
     <Folder Include="Adapters\" />
     <Folder Include="Adapters\ViewAdapters\" />
+    <Folder Include="Resources\drawable-hdpi\" />
+    <Folder Include="Resources\drawable-mdpi\" />
+    <Folder Include="Resources\drawable-xhdpi\" />
+    <Folder Include="Resources\drawable-xxhdpi\" />
+    <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArcTouchTMDb.Core\ArcTouchTMDb.Core.csproj">

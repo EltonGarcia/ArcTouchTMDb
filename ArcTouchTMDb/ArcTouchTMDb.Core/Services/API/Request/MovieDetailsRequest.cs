@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ArcTouchTMDb.Core.Services.API.Request
+﻿namespace ArcTouchTMDb.Core.Services.API.Request
 {
 	public class MovieDetailsRequest : BaseRequest
 	{
@@ -11,10 +8,11 @@ namespace ArcTouchTMDb.Core.Services.API.Request
 			set;
 		}
 
-		protected override string action => string.Format("movie/{0}", movie_id);
+		protected override string action => string.Format("/movie/{0}", movie_id);
 
-		public MovieDetailsRequest(Settings settings) : base(settings)
+		public MovieDetailsRequest(Settings settings, int movieId) : base(settings)
 		{
+			movie_id = movieId;
 		}
 	}
 }

@@ -58,6 +58,7 @@
     <Compile Include="AppStart.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="ViewModels\MovieDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">

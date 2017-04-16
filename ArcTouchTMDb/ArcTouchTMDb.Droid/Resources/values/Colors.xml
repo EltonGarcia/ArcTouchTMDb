@@ -2,13 +2,9 @@
 <resources>
    <color name="colorPrimary">#153431</color>
     <color name="colorPrimaryDark">#053330</color>
+	<color name="gray">#5e5e5e</color>
+	<color name="white">#FFFFFF</color>
     <color name="colorAccent">#FF4081</color>
     <color name="cinza_texto">#595959</color>
     <color name="green_alert">#2ecc71</color>
-    <color name="dark_tranparency">#333498db</color>
-    <color name="second_background">#e7e7e7</color>
-    <color name="green_ok">#0aaf0d</color>
-    <color name="cinza_texto_claro">#838383</color>
-    <color name="cinza_claro">#bbbbbb</color>
-    <color name="negative">#bb123f</color>
 </resources>

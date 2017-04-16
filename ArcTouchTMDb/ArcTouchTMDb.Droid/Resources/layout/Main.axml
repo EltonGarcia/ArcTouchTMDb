@@ -12,6 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="2dp"
-        local:MvxBind="ItemsSource Movies"
+        local:MvxBind="ItemsSource Movies; ItemClick MovieDetailsCommand"
         local:MvxItemTemplate="@layout/movie_list_item" />
 </LinearLayout>
