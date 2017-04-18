@@ -59,6 +59,9 @@
     <Compile Include="App.cs" />
     <Compile Include="Services\SettingsService.cs" />
     <Compile Include="ViewModels\MovieDetailsViewModel.cs" />
+    <Compile Include="Interfaces\Services\INetworkService.cs" />
+    <Compile Include="Services\NetworkStatusChangedMessage.cs" />
+    <Compile Include="Interfaces\Services\AbstractNetworkService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">

@@ -36,7 +36,7 @@ namespace ArcTouchTMDb.Core.Tests
 
 			//act
 			var moviesViewModel = new MoviesViewModel(mockMessenger.Object, mockTMDbService.Object, 
-			                                          mockSettingsService.Object, new IncrementalCollectionFactory());
+			                                          mockSettingsService.Object, new IncrementalCollectionFactory(), null);
 			//assert
 			Assert.AreEqual(moviesViewModel.Movies.Count, 3);
 		}

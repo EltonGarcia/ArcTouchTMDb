@@ -144,6 +144,8 @@
     <Compile Include="Adapters\ViewAdapters\IncrementalAdapter.cs" />
     <Compile Include="Adapters\ViewAdapters\IncrementalListView.cs" />
     <Compile Include="Activities\MovieDetailsActivity.cs" />
+    <Compile Include="Services\DroidNetworkService.cs" />
+    <Compile Include="Services\NetworkConnectionBroadcastReceiver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -217,6 +219,7 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArcTouchTMDb.Core\ArcTouchTMDb.Core.csproj">

@@ -16,6 +16,7 @@ namespace ArcTouchTMDb.Core
 	{
 		private readonly ITMDbService _tmdbService;
 		private readonly IIncrementalCollectionFactory _incrementalCollectionFactory;
+		private INetworkService _networkService;
 
 		private ObservableCollection<Movie> _movies;
 		private int _page = 0;
@@ -53,7 +54,7 @@ namespace ArcTouchTMDb.Core
 			get
 			{
 				var hasNextPage = !_totalPages.HasValue || (_totalPages.HasValue && _totalPages.Value > _page);
-				if (_movies == null && hasNextPage)
+				if (_networkService.IsConnected && _movies == null && hasNextPage)
 				{
 					_movies = _incrementalCollectionFactory.GetCollection(async (count, pageSize) =>
 					{
@@ -112,18 +113,33 @@ namespace ArcTouchTMDb.Core
 		/// <param name="tmdbService">Tmdb service.</param>
 		/// <param name="settingsService">Settings service.</param>
 		/// <param name="incrementalCollectionFactory">Incremental collection factory.</param>
-		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, IIncrementalCollectionFactory incrementalCollectionFactory)
+		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, 
+		                       IIncrementalCollectionFactory incrementalCollectionFactory, INetworkService networkService)
 			: base(messenger, settingsService)
 		{
 			_tmdbService = tmdbService;
 			_incrementalCollectionFactory = incrementalCollectionFactory;
+			_networkService = networkService;
 		}
 
 		public async override void Start()
 		{
 			base.Start();
 			ListLoaded = false;
-			await CheckListLoad();
+			if (_networkService.IsConnected)
+			{
+				await CheckListLoad();
+			}
+			else
+			{
+				_networkService.Subscribe(async (result) => {
+					if (result.Status.IsConnected)
+					{
+						RaisePropertyChanged(() => Movies);
+						await CheckListLoad();
+					}
+				});
+			}
 		}
 
 		private async Task CheckListLoad()
