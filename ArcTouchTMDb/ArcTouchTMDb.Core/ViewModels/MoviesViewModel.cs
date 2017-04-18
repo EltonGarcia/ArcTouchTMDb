@@ -26,6 +26,10 @@ namespace ArcTouchTMDb.Core
 		private bool _listLoaded;
 		private string _search;
 
+		/// <summary>
+		/// Gets a value indicating whether load in progress.
+		/// </summary>
+		/// <value><c>true</c> if show progress; otherwise, <c>false</c>.</value>
 		public bool ShowProgress
 		{
 			get
@@ -34,6 +38,10 @@ namespace ArcTouchTMDb.Core
 			}
 		}
 
+		/// <summary>
+		/// Gets or sets a value indicating the list was loaded.
+		/// </summary>
+		/// <value><c>true</c> if list loaded; otherwise, <c>false</c>.</value>
 		public bool ListLoaded
 		{
 			get
@@ -46,6 +54,21 @@ namespace ArcTouchTMDb.Core
 			}
 		}
 
+		/// <summary>
+		/// Gets a value indicating empty results.
+		/// </summary>
+		/// <value><c>true</c> if empty results; otherwise, <c>false</c>.</value>
+		public bool EmptyResults
+		{
+			get {
+				return ListLoaded && (_movies == null || !_movies.Any());
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the search query.
+		/// </summary>
+		/// <value>The search.</value>
 		public string Search
 		{
 			get { return _search; }
@@ -130,6 +153,10 @@ namespace ArcTouchTMDb.Core
 			}
 		}
 
+		/// <summary>
+		/// The search movies command.
+		/// </summary>
+		/// <value>The search command.</value>
 		public MvxCommand SearchCommand
 		{
 			get
@@ -145,6 +172,10 @@ namespace ArcTouchTMDb.Core
 			RaisePropertyChanged(() => Movies);
 		}
 
+		/// <summary>
+		/// The clear search command.
+		/// </summary>
+		/// <value>The clear search command.</value>
 		public MvxCommand ClearSearchCommand
 		{
 			get

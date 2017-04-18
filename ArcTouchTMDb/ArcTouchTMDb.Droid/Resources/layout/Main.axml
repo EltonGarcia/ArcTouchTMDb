@@ -68,6 +68,12 @@
                 local:MvxBind="Click ClearSearchCommand" />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/empty_results"
+        local:MvxBind="Visible EmptyResults" />
     <ArcTouchTMDb.Droid.IncrementalListView
         android:id="@+id/ListMovies"
         android:smoothScrollbar="true"

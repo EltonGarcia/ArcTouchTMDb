@@ -49,7 +49,14 @@ namespace ArcTouchTMDb.Droid
 			if (_command == null)
 				return;
 
+			CloseKeyboard((EditText)sender);
 			_command.Execute(((EditText)sender).Text);
+		}
+
+		private void CloseKeyboard(EditText editText)
+		{
+			InputMethodManager imm = (InputMethodManager)editText.Context.GetSystemService(Context.InputMethodService);
+			imm.HideSoftInputFromWindow(editText.WindowToken, 0);
 		}
 
 		public override Type TargetType => typeof(ICommand);
