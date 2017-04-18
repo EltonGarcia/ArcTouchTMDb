@@ -20,5 +20,11 @@ namespace ArcTouchTMDb.Droid
 			base.InitializeIoC();
 			Mvx.RegisterType<INetworkService, DroidNetworkService>();
 		}
+
+		protected override void FillTargetFactories(MvvmCross.Binding.Bindings.Target.Construction.IMvxTargetBindingFactoryRegistry registry)
+		{
+			EditTextImeActionBinding.Register(registry);
+			base.FillTargetFactories(registry);
+		}
 	}
 }

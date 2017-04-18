@@ -17,13 +17,14 @@ namespace ArcTouchTMDb.Core.Services.API.Request
 				return new Dictionary<string, string>
 				{
 					{"page", page.ToString()},
-					{"queryby", query}
+					{"query", query}
 				};
 			}
 		}
 
-		public SearchMoviesRequest(Settings settings) : base(settings)
+		public SearchMoviesRequest(Settings settings, string search) : base(settings)
 		{
+			query = search;
 		}
 
 	}

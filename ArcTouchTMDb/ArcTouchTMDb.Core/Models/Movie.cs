@@ -8,7 +8,7 @@ namespace ArcTouchTMDb.Core
 		public string poster_path { get; set; }
 		public bool adult { get; set; }
 		public string overview { get; set; }
-		public DateTime release_date { get; set; }
+		public DateTime? release_date { get; set; }
 		public List<int> genre_ids { get; set; }
 		public int id { get; set; }
 		public string original_title { get; set; }
@@ -20,7 +20,7 @@ namespace ArcTouchTMDb.Core
 		public bool video { get; set; }
 		public double vote_average { get; set; }
 
-		public int year { get{ return release_date.Year; } }
+		public string year { get{ return release_date.HasValue ? release_date.Value.Year.ToString() : string.Empty; } }
 		public string poster { get { return "https://image.tmdb.org/t/p/w300" + poster_path; } }
 	}
 }

@@ -146,6 +146,7 @@
     <Compile Include="Activities\MovieDetailsActivity.cs" />
     <Compile Include="Services\DroidNetworkService.cs" />
     <Compile Include="Services\NetworkConnectionBroadcastReceiver.cs" />
+    <Compile Include="Adapters\ViewAdapters\EditTextImeActionBinding.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -208,6 +209,16 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_date_range_black_18dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_date_range_black_18dp.png" />
     <AndroidResource Include="Resources\drawable\start.png" />
+    <AndroidResource Include="Resources\drawable\search.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_cancel_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_cancel_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_cancel_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_cancel_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_cancel_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

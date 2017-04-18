@@ -6,6 +6,7 @@ using ArcTouchTMDb.Core.Services.API.Request;
 using Sequence.Plugins.InfiniteScroll;
 using MvvmCross.Core.ViewModels;
 using System.Linq;
+using ArcTouchTMDb.Core.Services.API.Response;
 
 namespace ArcTouchTMDb.Core
 {
@@ -23,7 +24,7 @@ namespace ArcTouchTMDb.Core
 		private int _pageSize = 20;
 		private int? _totalPages = null;
 		private bool _listLoaded;
-		private object _lockObject = new object();
+		private string _search;
 
 		public bool ShowProgress
 		{
@@ -42,6 +43,19 @@ namespace ArcTouchTMDb.Core
 			set
 			{
 				_listLoaded = value;
+			}
+		}
+
+		public string Search
+		{
+			get { return _search; }
+			set
+			{
+				if (_search != value)
+				{
+					_search = value;
+					RaisePropertyChanged(() => Search);
+				}
 			}
 		}
 
@@ -78,10 +92,20 @@ namespace ArcTouchTMDb.Core
 		{
 			ObservableCollection<Movie> newMovies = new ObservableCollection<Movie>();
 
-			var request = new DiscoverRequest(Settings);
-			request.page = ++_page;
+			DiscoverResponse response;
+			if (string.IsNullOrEmpty(Search))
+			{
+				var request = new DiscoverRequest(Settings);
+				request.page = ++_page;
+				response = await _tmdbService.Discover(request);
+			}
+			else
+			{
+				var request = new SearchMoviesRequest(Settings, Search);
+				request.page = ++_page;
+				response = await _tmdbService.Search(request);
+			}
 
-			var response = await _tmdbService.Discover(request);
 			if (response != null)
 			{
 				_totalPages = response.total_pages;
@@ -106,6 +130,32 @@ namespace ArcTouchTMDb.Core
 			}
 		}
 
+		public MvxCommand SearchCommand
+		{
+			get
+			{
+				return new MvxCommand(FindMovies);
+			}
+		}
+
+		private void FindMovies()
+		{
+			_page = 0;
+			_movies = null;
+			RaisePropertyChanged(() => Movies);
+		}
+
+		public MvxCommand ClearSearchCommand
+		{
+			get
+			{
+				return new MvxCommand(()=> { 
+					Search = null;
+					FindMovies();
+				});
+			}
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:ArcTouchTMDb.Core.MoviesViewModel"/> class.
 		/// </summary>
@@ -113,8 +163,8 @@ namespace ArcTouchTMDb.Core
 		/// <param name="tmdbService">Tmdb service.</param>
 		/// <param name="settingsService">Settings service.</param>
 		/// <param name="incrementalCollectionFactory">Incremental collection factory.</param>
-		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService, 
-		                       IIncrementalCollectionFactory incrementalCollectionFactory, INetworkService networkService)
+		public MoviesViewModel(IMvxMessenger messenger, ITMDbService tmdbService, ISettingsService settingsService,
+				       IIncrementalCollectionFactory incrementalCollectionFactory, INetworkService networkService)
 			: base(messenger, settingsService)
 		{
 			_tmdbService = tmdbService;
@@ -132,7 +182,8 @@ namespace ArcTouchTMDb.Core
 			}
 			else
 			{
-				_networkService.Subscribe(async (result) => {
+				_networkService.Subscribe(async (result) =>
+				{
 					if (result.Status.IsConnected)
 					{
 						RaisePropertyChanged(() => Movies);
