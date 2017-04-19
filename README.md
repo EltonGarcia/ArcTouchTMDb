@@ -5,11 +5,24 @@ An Android app developed for cinephiles and movie hobbyists, fed by the content 
 
 ## Screenshots
 
-<img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/1%20-%20Splash%20Screen.png?raw=true"  title="Splash Screen" width="250" />
-<img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/2%20-%20Movies%20List.png?raw=true" title="Movies List" width="250" />
-
-<img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/3%20-%20Search%20Movies.png?raw=true"  title="Search" width="250" />
-<img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/4%20-%20Movie%20Details.png?raw=true"  title="Movie Details" width="250" />
+<table width="100%">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/1%20-%20Splash%20Screen.png?raw=true"  title="Splash Screen" width="250" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/2%20-%20Movies%20List.png?raw=true" title="Movies List" width="250" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/3%20-%20Search%20Movies.png?raw=true"  title="Search" width="250" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/4%20-%20Movie%20Details.png?raw=true"  title="Movie Details" width="250" />
+    </td>
+  </tr>
+</table>
 
 
 ## Installing 
