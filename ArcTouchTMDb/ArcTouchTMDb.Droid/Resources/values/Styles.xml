@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- Base theme applied regardless of API level -->
+	<style name="TMDb.Theme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+		<!-- If you are using revision 22.1, use 'windowNoTitle' without 'android:' -->
+		<item name="windowNoTitle">true</item>
+		<!-- If you're using the toolbar, no need to show ActionBar -->
+		<item name="windowActionBar">false</item>
+		<!-- Set theme colors from https://material.io/guidelines/style/color.html -->
+		<!-- As a rule of thumb, colorPrimary should be a 500 value -->
+		<!-- colorPrimary is used for the default action bar background -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<!-- colorPrimaryDark is used for the status bar -->
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<!-- colorAccent is used as the default value for colorControlActivated which is used to tint widgets -->
+		<item name="windowActionModeOverlay">false</item>
+		<item name="android:fitsSystemWindows">true</item>
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+	</style>
+	<style name="TMDb.Theme" parent="TMDb.Theme.Base">
+	</style>
+	<style name="TMDb.Theme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+	<style name="TMDb.Theme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+	<style name="TMDb.Theme.ActionBar.Transparent" parent="TMDb.Theme">
+		<item name="android:windowContentOverlay">@null</item>
+		<item name="windowActionBarOverlay">true</item>
+		<item name="colorPrimary">@android:color/transparent</item>
+	</style>
+	<style name="movie_details_text">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">14dp</item>
+		<item name="android:paddingTop">8dp</item>
+		<item name="android:paddingLeft">8dp</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:layout_gravity">center_vertical</item>
+		<item name="android:includeFontPadding">false</item>
+	</style>
+</resources>

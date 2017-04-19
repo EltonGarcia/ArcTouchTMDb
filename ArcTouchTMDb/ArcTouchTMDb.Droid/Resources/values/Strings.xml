@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">The Movie DB</string>
+	<string name="overview">Overview</string>
+	<string name="search">Search</string>
+	<string name="search_hint">Type a movie title</string>
+	<string name="empty_results">No Items Recovered</string>
+</resources>

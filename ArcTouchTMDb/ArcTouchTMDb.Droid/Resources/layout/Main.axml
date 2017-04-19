@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        local:MvxBind="Visible ShowProgress" />
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/colorPrimaryDark"
+        local:MvxBind="Visible ListLoaded">
+        <LinearLayout
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+            <EditText
+                local:MvxBind="Text Search; ImeAction SearchCommand"
+                android:id="@+id/list_search"
+                android:hint="@string/search_hint"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:imeActionLabel="@string/search"
+                android:imeOptions="actionSearch"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/search"
+                android:layout_gravity="center"
+                android:textColorHint="@android:color/white"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="8dp"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:inputType="text" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_cancel_white_24dp"
+                android:background="@null"
+                android:paddingLeft="8dp"
+                local:MvxBind="Click ClearSearchCommand" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/empty_results"
+        local:MvxBind="Visible EmptyResults" />
+    <ArcTouchTMDb.Droid.IncrementalListView
+        android:id="@+id/ListMovies"
+        android:smoothScrollbar="true"
+        android:scrollingCache="false"
+        android:animationCache="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="2dp"
+        local:MvxBind="ItemsSource Movies; ItemClick MovieDetailsCommand;Visible ListLoaded"
+        local:MvxItemTemplate="@layout/movie_list_item" />
+</LinearLayout>

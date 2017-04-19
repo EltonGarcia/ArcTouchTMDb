@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@color/gray">
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        local:MvxBind="Visible ShowProgress" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        local:MvxBind="Text Movie.title"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        local:MvxBind="Visible Loaded">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ffimageloading.cross.MvxImageLoadingView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="600dp"
+                android:layout_height="300dp"
+                local:MvxBind="DataLocationUri Poster; RetryCount 3"
+                android:layout_weight="1"
+                android:paddingBottom="8dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overview"
+                    android:drawableLeft="@drawable/ic_movie_black_18dp"
+                    android:drawablePadding="8dp"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:paddingTop="8dp" />
+                <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    local:MvxBind="Text Movie.overview"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/icon_release"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_date_range_black_18dp"
+                        android:layout_alignBottom="@+id/release_date"
+                        android:layout_alignTop="@+id/release_date" />
+                    <TextView
+                        android:id="@+id/release_date"
+                        style="@style/movie_details_text"
+                        local:MvxBind="Text Movie.release_date"
+                        android:layout_toRightOf="@+id/icon_release"
+                        android:text="2017-03-08" />
+                    <ImageView
+                        android:id="@+id/icon_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star_rate_black_18dp"
+                        android:layout_alignBaseline="@+id/icon_rate"
+                        android:layout_alignBottom="@+id/rate"
+                        android:layout_alignTop="@+id/rate" />
+                    <TextView
+                        android:id="@+id/rate"
+                        style="@style/movie_details_text"
+                        local:MvxBind="Text Movie.vote_average"
+                        android:layout_toRightOf="@+id/icon_rate"
+                        android:layout_alignLeft="@+id/release_date"
+                        android:layout_below="@+id/release_date"
+                        android:text="7.0" />
+                    <ImageView
+                        android:id="@+id/icon_homepage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_http_black_24dp"
+                        android:layout_below="@+id/icon_rate"
+                        android:layout_alignBottom="@+id/homepage"
+                        android:layout_alignTop="@+id/homepage" />
+                    <TextView
+                        android:id="@+id/homepage"
+                        style="@style/movie_details_text"
+                        local:MvxBind="Text Movie.homepage"
+                        android:layout_toRightOf="@+id/icon_homepage"
+                        android:layout_alignLeft="@+id/rate"
+                        android:layout_below="@+id/rate"
+                        android:text="http://kongskullislandmovie.com/"
+                        android:autoLink="web" />
+                    <ImageView
+                        android:id="@+id/icon_companies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_business_black_18dp"
+                        android:layout_alignBottom="@+id/production"
+                        android:layout_below="@+id/icon_homepage"
+                        android:layout_alignTop="@+id/production" />
+                    <TextView
+                        android:id="@+id/production"
+                        style="@style/movie_details_text"
+                        local:MvxBind="Text ProductionCompanies"
+                        android:layout_toRightOf="@+id/icon_companies"
+                        android:layout_alignLeft="@+id/homepage"
+                        android:layout_below="@+id/homepage"
+                        android:text="Legendary Entertainment" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
