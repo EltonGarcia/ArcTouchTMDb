@@ -6,17 +6,16 @@ An Android app developed for cinephiles and movie hobbyists, fed by the content 
 ## Screenshots
 
 ![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/1%20-%20Splash%20Screen.png?raw=true “Splash Screen”)
-![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/2%20-%20Movies%20List.png?raw=true “Movies List“)
+![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/2%20-%20Movies%20List.png?raw=true “Movies List”)
 
-![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/3%20-%20Search%20Movies.png?raw=true “Search“)
-![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/4%20-%20Movie%20Details.png?raw=true “Movie Details“)
+![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/3%20-%20Search%20Movies.png?raw=true “Search”)
+![alt text](https://github.com/EltonGarcia/ArcTouchTMDb/blob/development/Screenshots/4%20-%20Movie%20Details.png?raw=true “Movie Details”)
 
 
 ## Installing 
 
 Clone this repository and open the solution using either Xamarin Studio or Visual Studio.
-
-#### Prerequisites: Android SDK (API 24), Xamarin Studio or Visual Studio (with Xamarin tools installed).
+- Prerequisites: Android SDK (API 24), Xamarin Studio or Visual Studio (with Xamarin tools installed).
 
 
 ## Third-party libraries used (installed through NuGet package manager)
